@@ -5,9 +5,9 @@
 #include <Arduino.h>
 #include "DigitalInput.hpp"
 
-static constexpr uint8_t ButtonGPIOPin{ 4 };
+static constexpr uint8_t ledGPIOPin{ 4 };
 
-DigitalInput button{ ButtonGPIOPin };
+DigitalInput button{ ledGPIOPin };
 
 void setup() {
     button.begin(); // Inicializar antes de usar
