@@ -5,5 +5,6 @@ AnalogInput::AnalogInput(uint8_t pin)
 }
 
 uint16_t AnalogInput::read() const noexcept {
+    this->checkPinInitialized();
     return analogRead(this->getPin());
 }

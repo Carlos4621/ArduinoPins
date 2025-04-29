@@ -5,5 +5,6 @@ DigitalOutput::DigitalOutput(uint8_t pin)
 }
 
 void DigitalOutput::write(bool value) {
+    this->checkPinInitialized();
     digitalWrite(this->getPin(), value);
 }

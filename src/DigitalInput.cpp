@@ -5,5 +5,6 @@ DigitalInput::DigitalInput(uint8_t pin)
 }
 
 bool DigitalInput::read() const noexcept {
+    this->checkPinInitialized();
     return digitalRead(this->getPin());
 }

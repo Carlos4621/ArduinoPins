@@ -4,6 +4,7 @@
 
 #include <Arduino.h>
 #include <cstdint>
+#include <stdexcept>
 
 /// @brief Representación de pin
 class Pin {
@@ -24,10 +25,15 @@ protected:
     [[nodiscard]]
     uint8_t getPin() const noexcept;
 
+    /// @brief Verifica si el pin fue inicializado, lanza una excepción si no
+    void checkPinInitialized() const;
+
 private:
 
     uint8_t pin_m;
     uint8_t pinMode_m;
+
+    bool pinInitialized_m{ false };
 };
 
 

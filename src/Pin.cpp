@@ -7,9 +7,18 @@ Pin::Pin(uint8_t pin, uint8_t pinMode)
 }
 
 void Pin::begin() {
-    pinMode(pin_m, pinMode_m);
+    if (!pinInitialized_m) {
+        pinMode(pin_m, pinMode_m);
+        pinInitialized_m = true;
+    }
 }
 
 uint8_t Pin::getPin() const noexcept {
     return pin_m;
+}
+
+void Pin::checkPinInitialized() const {
+    if (!pinInitialized_m) {
+        throw std::logic_error("Pin not initialized. Call begin() before using the pin.");
+    }
 }
