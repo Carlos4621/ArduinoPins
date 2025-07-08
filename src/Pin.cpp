@@ -18,7 +18,9 @@ uint8_t Pin::getPin() const noexcept {
 }
 
 void Pin::checkPinInitialized() const {
+    #if defined(__cpp_exceptions) || defined(__EXCEPTIONS)
     if (!pinInitialized_m) {
         throw std::logic_error("Pin not initialized. Call begin() before using the pin.");
     }
+    #endif
 }
