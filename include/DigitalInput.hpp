@@ -16,6 +16,13 @@ public:
     /// @return El estado actual del pin
     [[nodiscard]]
     bool read() const noexcept;
+
+    /// @brief Espera x segundos una entrada
+    /// @param timeoutInMs Tiempo en milisegundos a esperar la entrada
+    /// @param watchdogInMs Tiempo en milisegundos entre cada muestreo, ideal para evitar usar toda la CPU en chequeos periódicos
+    /// @return true en caso de detectar una entrada antes de timeout, false si no se detecta una entrada en dicho tiempo
+    [[nodiscard]]
+    bool waitForInput(size_t timeoutInMs, uint8_t watchdogInMs = 1);
 };
 
 #endif // !DIGITAL_INPUT_HEADER
