@@ -21,7 +21,7 @@ public:
     /// @param timeoutInMs Tiempo en milisegundos a esperar la entrada
     /// @param watchdogInMs Tiempo en milisegundos entre cada muestreo, ideal para evitar usar toda la CPU en chequeos periódicos
     /// @return true en caso de detectar una entrada antes de timeout, false si no se detecta una entrada en dicho tiempo
-    [[nodiscard]]
+    [[maybe_unused]]
     bool waitForInput(size_t timeoutInMs, uint8_t watchdogInMs = 1);
 };
 
